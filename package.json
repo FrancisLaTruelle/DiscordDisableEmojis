@@ -1,0 +1,25 @@
+{
+  "name": "discord-disable-emojis",
+  "version": "1.0.0",
+  "description": "Very simple module that allows you to disable emojis (in reactions or in messages) with Discord v12",
+  "main": "discord-disable-emojis.js",
+  "author": "FrancisLaTruelle",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancisLaTruelle/DiscordDisableEmojis.git"
+  },
+  "keywords": [
+    "discord.js",
+    "discord",
+    "reaction",
+    "disable",
+    "module",
+    "prohibit",
+    "forbid"
+  ],
+  "bugs": {
+    "url": "https://github.com/FrancisLaTruelle/DiscordDisableEmojis/issues"
+  },
+  "homepage": "https://github.com/FrancisLaTruelle/DiscordDisableEmojis#readme"
+}
