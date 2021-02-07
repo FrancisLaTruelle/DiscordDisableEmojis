@@ -47,8 +47,8 @@ module.exports = async (client, options) => {
             }
         })
     } else if (disableAll === "enable") {
-        const allowedEmojisMessage = (options && options.allowedEmojisMessage) || ["💩", "🖕"]
-        const allowedEmojisReaction = (options && options.allowedEmojisReaction) || ["💩", "🖕"]
+        const allowedEmojisMessage = (options && options.allowedEmojisMessage) || []
+        const allowedEmojisReaction = (options && options.allowedEmojisReaction) || []
 
         client.on("checkEmojisMessage", async (message) => {
             if (!allowedEmojisMessage.length) {
