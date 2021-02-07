@@ -73,6 +73,8 @@ client.on('ready', async () => {
 # Patch note
 Note: The DisableAll is by default disabled, this will not break old bots that update this module.
 __Versions :__
+- 1.1.1 :
+    - Fix default allowed emojis message & reaction
 - 1.1.0 : 
     - Added DisableAll option (suggestion from Nokocchii)
     - Added allowedEmojisMessage option (obvious)
