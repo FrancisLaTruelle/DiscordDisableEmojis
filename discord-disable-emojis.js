@@ -23,7 +23,7 @@ module.exports = async (client, options) => {
         const disabledEmojisReaction = (options && options.disabledEmojisReaction) || []
 
         client.on("checkEmojisMessage", async (message) => {
-            for (let i = 0; i < disabledEmojisMessage.length; i++) {
+            for (let i = 0; i < disabledEmojisMessage.length; i++) { // If the message contains an emoji from the disabled list 
                 if (message.content.includes(disabledEmojisMessage[i])) {
                     message.delete().catch(e => {})
                     DMwarnMessage(message.author)
@@ -39,7 +39,7 @@ module.exports = async (client, options) => {
             if(!message) return;
             if(user.bot) return;
     
-            for (let i = 0; i < disabledEmojisReaction.length; i++) {
+            for (let i = 0; i < disabledEmojisReaction.length; i++) { // If the added reaction matches the disabled list 
                 if (reaction.emoji.name === disabledEmojisReaction[i]) {
                     reaction.users.remove(user.id)
                     DMwarnReaction(user)
@@ -51,7 +51,7 @@ module.exports = async (client, options) => {
         const allowedEmojisReaction = (options && options.allowedEmojisReaction) || []
 
         client.on("checkEmojisMessage", async (message) => {
-            if (!allowedEmojisMessage.length) {
+            if (!allowedEmojisMessage.length) { // If the allowed list is empty then we delete all messages with emoji 
                 let checked = message.content.match(emojiRegex())
                 if(checked && checked.length) {
                     message.delete().catch(e => {})
@@ -59,8 +59,13 @@ module.exports = async (client, options) => {
                 }
             }
 
-            for (let i = 0; i < allowedEmojisMessage.length; i++) {
-                if (message.content.includes(allowedEmojisMessage[i])) {
+            for (let i = 0; i < allowedEmojisMessage.length; i++) { // If the allowed list contains something, then we see if there is an emoji in the message and we see if this emoji is in the allowed lis
+                let checked = message.content.match(emojiRegex())
+                if(checked && checked.length) {
+                    if (message.content.includes(allowedEmojisMessage[i])) {
+                        return
+                    }
+                } else {
                     return
                 }
             }
@@ -76,12 +81,12 @@ module.exports = async (client, options) => {
             if(!message) return;
             if(user.bot) return;
     
-            if (!allowedEmojisReaction.length) {
+            if (!allowedEmojisReaction.length) { // If the allowed list is empty then we always delete the reaction 
                 reaction.users.remove(user.id)
                 DMwarnReaction(user)
             }
 
-            for (let i = 0; i < allowedEmojisReaction.length; i++) {
+            for (let i = 0; i < allowedEmojisReaction.length; i++) { // If the allowed list contains something, we see if it corresponds with the reaction just added
                 if (reaction.emoji.name === allowedEmojisReaction[i]) {
                     return
                 }

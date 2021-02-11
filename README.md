@@ -73,6 +73,9 @@ client.on('ready', async () => {
 # Patch note
 Note: The DisableAll is by default disabled, this will not break old bots that update this module.
 __Versions :__
+- 1.1.2 :
+    - Fix message parsing for DisableAll enable
+    - Adding comments to better find your way around the code 
 - 1.1.1 :
     - Fix default allowed emojis message & reaction
 - 1.1.0 : 
